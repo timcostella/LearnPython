@@ -1,0 +1,1 @@
+# Learning Python Notes, taken while doing boot.dev and a random course on pluralsight I don't remember anymore
