@@ -197,6 +197,12 @@ if "Tim" in FullName:
     print("Tim is in the full name")
 
 
+# You can check if a string is alphanumeric, i.e. contains only ascii/unicode "letters" and not spaces, nonprintable characters, etc.
+MyStringAlpha="abµ"
+print(MyStringAlpha.isalpha()) # returns True
+
+
+
 # Lists are created with square brackets
 fruits = ["apple", "banana", "cherry"]
 print(fruits)
