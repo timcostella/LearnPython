@@ -819,3 +819,12 @@ def switch_case_example(value):
         
      
         
+# The builtin in python module sys lets us pass in arguments to our script via the commandline
+# The list sys.argv is a list of strings representing arguments passed to the script. 
+# The first element of sys.argv[0] is the name of the script
+
+# We can check that our script was passed at least 1 argument like so
+# If we didn't get the correct number of 
+if len(sys.argv) < 2:
+        print("Usage python3 main.py <argument> <argument2>")
+        sys.exit(1)
