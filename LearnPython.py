@@ -1,9 +1,14 @@
+
 # Single line comments in Python begin with hash marks
 
 """
     triple quotes create a multi-line comment
     multi-line comments are also used for doc strings
 """
+
+# To use external modules you use the import function to make them available to your code
+import random
+
 
 # Printing to the console
 print("hello world")
@@ -272,7 +277,10 @@ print(fruits)
 print("****************************")
 
 
-
+# You can radomize a list with random.shuffle
+# requires you to import random
+MyOrderedList = [1,2,3,4,5,6,7,8,9,10]
+random.shuffle(MyOrderedList)
 
 
 
@@ -742,8 +750,15 @@ raise Exception("This is an error")
 
 
 # You can use a with block to open a file for reading
-# with open(path_to_file) as f:
-    # do something with f (the file) here
+try:
+    with open(file_path, 'r') as file:
+    content = file.read()
+except FileNotFoundError:
+    print(f"File not found: {file_path}")
+    return False
+except Exception as e:
+    print(f"An error occurred: {e}")
+    return False 
 
 
 # Python classes are defined with a class keyword
@@ -756,7 +771,7 @@ class car:
         self.color = color
 
 # If you print a class you get a default output that isn't very useful, but you can override the default print operation
-MyCar = car("Ford", "F150", Blue)
+MyCar = car("Ford", "F150", "Blue")
 print(MyCar)
 
 
@@ -772,9 +787,45 @@ class UpgradedCar:
     def __str__:
         return f"The best car ever is a {self.color} {self.make} {self.model} that can go to speeds up to {self.speed}"
 
-MyNewCar = UpgradedCar("Ford", "F150", Blue)
+MyNewCar = UpgradedCar("Ford", "F150", "Blue")
 print(MyNewCar)
 
+
+### Classes have methods, or functions that act on the instance of the class.  
+### The first parameter is always the instance of the class that the method is being called on and we use 'self' for this
+
+class MySportsCar:
+    def __init__(self, make, model, color, speed, price, x, y, z):
+        self.make = make
+        self.model = model
+        self.color = color
+        self.speed = speed
+        self.x = x
+        self.y = y
+        self.z = z 
+        # You can create private properties or methods by starting them with two underscores __
+        self.__price = price
+
+
+    def __str__:
+        return f"The best car ever is a {self.color} {self.make} {self.model} that can go to speeds up to {self.speed}"
+
+    def move(self, x, y, z):
+        self.x += x
+        self.y += y
+        self.z += z
+
+
+MyPorsche = MySportsCar("Porsche", "Some Expensive Model", "Cherry Red")
+MyPorsche.move(1,1,1)
+
+# Python supports inheritance - one class can inherit the properties and methods from a parent class
+# You add the parent class inside of paranthesis when you define the child class
+class MyRaceCar(MySportsCar):
+     def __init__(self, make, model, color, speed, price, x, y, z, max_acceleration):
+         # We can call the class's parent constructor or methods by using the super() method
+         super().__init__(self, make, model, color, speed, price, x, y, z)
+         self.max_acceleration = max_acceleration
 
 # In Python, the built-in map function takes a function and an iterable (in this case a list) as inputs. It returns an iterator that applies the function to every item, yielding the results.
 # With map, we can operate on lists without using loops and nasty stateful variables. For example:
@@ -798,7 +849,7 @@ print(evens)
 # [2, 4, 6]
 
 
-# The join ffunction can take an iterable and combine them together with whatever character you provide
+# The join function can take an iterable and combine them together with whatever character you provide
 word_list = ["Hello", "I", "am", "Bob"]
 sentence = " ".join(word_list)
 print(sentence)
@@ -824,7 +875,7 @@ def switch_case_example(value):
 # The first element of sys.argv[0] is the name of the script
 
 # We can check that our script was passed at least 1 argument like so
-# If we didn't get the correct number of 
+# If we didn't get the correct number of arguments you can use the sys.exit(1) to exit the script 
 if len(sys.argv) < 2:
         print("Usage python3 main.py <argument> <argument2>")
-        sys.exit(1)
+        # sys.exit(1)
