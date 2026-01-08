@@ -43,6 +43,16 @@ print(Greeting.upper())  # Prints "HELLO"
 # You can convert a string to lowercase with the lower() method
 print(Greeting.lower())  # Prints "hello"
 
+# You can convert a string to Proper case using the capitalize() method
+print(Greeting.capitalize())  # Prints "Hello"
+
+# You can replace characters in a string with the replace() method
+print(Greeting.replace('e', 'a'))  # Prints Hallo
+
+# You can remove whitespace from the beginning or end of a string with the strip method
+a_lot_of_whitespace = "   my string  "
+print(a_lot_of_whitespace.strip()) # Prints "my string" 
+
 # You can check if a string starts with a certain substring with the startswith() method
 print(Greeting.startswith("H"))  # Prints True  
 
@@ -282,6 +292,11 @@ print("****************************")
 MyOrderedList = [1,2,3,4,5,6,7,8,9,10]
 random.shuffle(MyOrderedList)
 
+
+# You can find the min and max of a list 
+PriceList = [0.00, 10.00, 34.54, -5.00, 123.45, 2.34]
+min(PriceList)
+max(PriceList)
 
 
 
@@ -812,8 +827,14 @@ class MySportsCar:
 
     def move(self, x, y, z):
         self.x += x
-        self.y += y
+        self.y += ys
         self.z += z
+
+    # Python allows for operator overload, by default you can't add (+) one instance of a object to another, unless you define an add method 
+    def __add__(self, car):
+        return self.x + car.x
+    
+    # Now I can add two car objects together to get the combined x positions, not so useful in this case
 
 
 MyPorsche = MySportsCar("Porsche", "Some Expensive Model", "Cherry Red")
