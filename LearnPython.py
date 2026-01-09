@@ -695,6 +695,13 @@ MyPlanetDictionary["neptune"] = "purple"
 
 print(MyPlanetDictionary)
 
+# You can retrieve the value for a specified key with the get() method. 
+# get() has an optional default value that will be returned if the key you specified is not found
+
+MyPlanetDictionary.get("earth", "not found")  #returns "blue"
+MyPlanetDictionary.get("saturn", "not found")  #returns "not found"
+
+
 # You can update a dictionary key value but reassigning it
 MyPlanetDictionary["earth"] = "blueish"
 
@@ -900,3 +907,19 @@ def switch_case_example(value):
 if len(sys.argv) < 2:
         print("Usage python3 main.py <argument> <argument2>")
         # sys.exit(1)
+
+
+# python supports ternary expressions which are used in functional programming - in order to make things harder to debug ;)
+# no it isn't to make the code harder to debug, I just don't like functional programming, at least not yet
+# format of a ternary expression is:  value if condition else other_value
+age  = 50
+results = "You are old" if age > 45 else "You are young"  
+print(results)
+
+
+# In python functions can be assigned like other variables/objects
+def subtract( num1, num2):
+    return num1 - num2
+
+sub = subtract
+sub(5, 2) # returns 3
