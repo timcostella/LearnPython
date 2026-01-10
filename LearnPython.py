@@ -55,6 +55,7 @@ print(a_lot_of_whitespace.strip()) # Prints "my string"
 
 # You can check if a string starts with a certain substring with the startswith() method
 print(Greeting.startswith("H"))  # Prints True  
+       
 
 # You can iterate across the characters of a string using a for loop
 MyString = "Hello There Citizen"
@@ -855,19 +856,26 @@ class MyRaceCar(MySportsCar):
          super().__init__(self, make, model, color, speed, price, x, y, z)
          self.max_acceleration = max_acceleration
 
-# In Python, the built-in map function takes a function and an iterable (in this case a list) as inputs. It returns an iterator that applies the function to every item, yielding the results.
-# With map, we can operate on lists without using loops and nasty stateful variables. For example:
+
+# In Python, the built-in map function takes a function as an argument and an iterable (list, etc.) as inputs. 
+# It returns an iterator that applies the function to every item, yielding the results.
+# With map, we can operate on lists without using loops.
+
+# the map function is an example of a higher-order function - which is a function that can accept another function
+# as an argument or returns a function
 
 def square(x):
     return x * x
 
 nums = [1, 2, 3, 4, 5]
 squared_nums = map(square, nums)
-print(list(squared_nums))
+print(squared_nums)
 # [1, 4, 9, 16, 25]
 
 
-# The built-in filter function takes a function and an iterable (in this case a list) and returns an iterator that only contains elements from the original iterable where the result of the function on that item returned True.
+# The built-in filter function takes a function and an iterable (in this case a list) and 
+# returns an iterator that only contains elements from the original iterable where the result of the function 
+# on that item returned True.
 def is_even(x):
     return x % 2 == 0
 
@@ -875,6 +883,13 @@ numbers = [1, 2, 3, 4, 5, 6]
 evens = list(filter(is_even, numbers))
 print(evens)
 # [2, 4, 6]
+
+
+## Add something about the reduce function
+
+
+## Add something about the zip function
+
 
 
 # The join function can take an iterable and combine them together with whatever character you provide
@@ -923,3 +938,33 @@ def subtract( num1, num2):
 
 sub = subtract
 sub(5, 2) # returns 3
+
+
+# When you pass a variable into a function as an argument it can either be passed by reference or value. 
+# When passed by value, you are essentially passing a copy of the variable into the function.  '
+# If you modify the copy nothing happens to the original variable 
+
+num = 10
+def increase_number_by_10(number):
+    number += 10
+    print(number)
+
+increase_number_by_10(num) #prints 20
+print(num) # prints 10
+
+# In python integers, floats, strings, booleans, tuples are passed by value
+
+# Alternatively the variable may be passed by reference, in which case if the variable is modified in the function
+# the original is also modified
+
+# lists, dictionaries, and sets are passed by reference
+
+name_list = ["Harry", "Sally", "Joe", "Iola"]
+
+def modify_list(list_to_modify):
+    list_to_modify.append("Frank")
+    print(list_to_modify)
+
+modify_list(name_list)
+print (name_list)
+
