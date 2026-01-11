@@ -404,6 +404,142 @@ for inventory_item in inventory_items:
 print("****************************")
 
 
+# Lists can be sliced using the colon operator
+# This allows us to pull only certain items from the list
+# The slice colon operator takes two parameters, the start, the end and an optional step parameter
+# The start is inclusive and the end is exclusive
+
+character_strength = [50, 70, 30, 20, 90, 10, 50]
+
+print(character_strength[1:5]) # prints [70, 30, 20, 90]
+
+print(character_strength[1:6:2]) # Prints [70, 20, 10]
+
+# If you leave off the start or end, it will default to the beginning or end of the list
+
+print(character_strength[:5]) # Prints [50, 70, 30, 20, 90]
+
+print(character_strength[2:]) # Prints [30, 20, 90, 10, 50]
+
+print(character_strength[::3]) # Prints [50, 20, 50]
+
+
+# You can also use negative numbers to slice from the end of the list
+print(character_strength[-3:]) # Prints [90, 10, 50]
+
+print(character_strength[:-1]) # Prints all the list items except the last item
+
+# You can also slice the last character off a string using this syntax
+character_full_name = "Bilbo Baggins!"
+print(character_full_name[:-1]) # Prints "Bilbo Baggins"
+
+# Or just get the last character of a string
+print(character_full_name[-1]) # Prints !
+
+print("****************************")
+
+# Two lists can be concatenated together with the + operator
+# This will create a new list with the elements of both lists
+# The original lists will not be modified
+inventory_bag_1_contents = ["apple", "rusty sword", "beef talo"]
+inventory_bag_2_contents = ["bread", "cloth scraps", "dagger"]
+inventory = inventory_bag_1_contents + inventory_bag_2_contents
+print(inventory) # Prints ["apple", "rusty sword", "beef talo", "bread", "cloth scraps", "dagger"] 
+
+# You can append one list to another with append, but you end up with a list with an element that is a list
+spell_list = ["blinding light","raise dead","heal me up"]
+spell_book = ["freeze breath","invsibility","fog of war"]
+spell_list.append(spell_book) # return None, but spell_list is now  ["blinding light","raise dead","heal me up", [freeze breath","invsibility","fog of war"]]
+
+# If you want to add the elements of a list to the end a current list use extend() instead
+spell_list = ["blinding light","raise dead","heal me up"]
+spell_book = ["freeze breath","invsibility","fog of war"]
+spell_list.extend(spell_book)  # return None, but spell_ist is now ["blinding light","raise dead","heal me up", freeze breath","invsibility","fog of war"]
+
+
+# You can check if a list contains an element with the in operator
+# This will return a boolean value
+# This is case sensitive
+print("apple" in ["apple", "scrap metal", "old dagger"])
+# Prints True
+
+# You can also check if a list does not contain an element with the not in operator
+print("apple" not in ["apple", "scrap metal", "old dagger"])
+# Prints False
+
+# You can check the position of a specific element in the list with the index() function
+travelers_bag_items = ["apples", "hard tac", "shiny knife", "potion of resolve"]
+
+travelers_bag_items.index("hard tac")  # prints 1
+travelers_bag_items.index("shiny knife")  # prints 2
+
+# You can delete elements from a list with the del keyword
+# This will remove the element at the specified index
+# This will modify the original list
+del travelers_bag_items[1]
+print(travelers_bag_items) # Prints ["apples", "shiny knife", "potion of resolve"]
+
+# You can also delete the entire list with the del keyword
+del travelers_bag_items[:]
+
+
+# You can use slices to delete multiple elements from a list
+big_bag_items = ["torn paper", "flint" "bottle of cider", "dull knife", "potion of invisibility"]
+del big_bag_items[1:3]
+print(big_bag_items)  # Prints ["torn paper", "potion of invisibility"]
+
+# To check if a list is empty you can check the length of the list
+if len(big_bag_items) == 0:
+   print("Bag is empty")
+
+# List can of course contain lists
+Bag_with_bag_in_it = ["cotton", "wolf hide", "thread", ["needles","pin cushion", "something lost"], "water"]
+
+# You can use isinstance to check if a item from a list is an integer, list etc.
+for item in Bag_with_bag_in_it:
+    print(type(item))
+    if(isinstance(item, list)):
+        print(f"{item} is a list")
+
+# To reverse the order of a list
+def reverse_list_version_1(items):
+    reversed_list = []
+    i = len(items) -1 
+    while i > -1:
+        reversed_list.append(items[i])
+        i -= 1
+    return reversed_list
+
+# Reverse the list using a range that counts backwards to -1 (inclusive of 0) from the last index of the list len(items) -1 
+def reverse_list_version_2(items):
+    reversed_list = []
+    for i in range(len(items) -1, -1, -1):
+        reversed_list.append(items[i])
+    return reversed_list
+
+#If you copy a list to another variable, the new variable will point to the same list in memory
+# This means that if you change the new variable, the original variable will also change
+MyList = [1,2,3]
+MyOtherList = MyList
+MyOtherList[0] = 4
+print(MyList) # Prints [4,2,3]
+
+# To copy a list to another variable without pointing to the same list in memory, you can use the copy() function
+MyList = [1,2,3]
+MyOtherList = MyList.copy()
+MyOtherList[0] = 4
+print(MyList) # Prints [1,2,3]
+
+# You can use a slice to copy a list to another variable without pointing to the same list in memory
+
+MyList[1,2,3]
+MyOtherList = MyList[:]
+MyOtherList[0] = 4
+print(MyList) # Prints [1,2,3]
+
+
+
+
 
 # Comparisons can be done with ==, !=, <=, >=, <, > which result in True or False
 
@@ -555,143 +691,6 @@ print("****************************")
 binary_string = "101"
 print(int(binary_string,2))
 # prints 5
-
-
-
-# Lists can be sliced using the colon operator
-# The colon operator takes two parameters, the start and the end and an optional step parameter
-# The start is inclusive and the end is exclusive
-
-scores = [50, 70, 30, 20, 90, 10, 50]
-# Display list
-print(scores[1:5:2])
-# Prints [70, 20]
-
-# If you leave off the start or end, it will default to the beginning or end of the list
-print(scores[:5])
-# Prints [50, 70, 30, 20, 90]
-
-print(scores[2:])
-# Prints [30, 20, 90, 10, 50]
-
-# You can also use negative numbers to slice from the end of the list
-print(scores[-3:])
-# Prints [90, 10, 50]
-
-print(scores[:-1])
-# Prints all the list items except the last item
-# You can also slice the last character off a string using this syntax
-# Prints [50, 70, 30, 20, 90, 10]
-
-# You can even just specify the step
-print(scores[::2])
-# Prints [50, 30, 90, 50]
-
-# Two lists can be concatenated together with the + operator
-# This will create a new list with the elements of both lists
-# The original lists will not be modified
-list1 = [1,2,3]
-list2 = [4,5,6]
-list3 = list1 + list2
-print(list3)
-# Prints [1, 2, 3, 4, 5, 6]
-
-# You can append one list to another
-list4 = ["A","B","C"]
-list5 = ["D","E","F"]
-list4.append(list5) # return None, but list4 now has a new element which is list 5 ["A","B","C",["D","E","F"]]
-print(list4)
-
-# If you want to add the elements of a list to the end a current list use extend() instead
-list4 = ["A","B","C"]
-list5 = ["D","E","F"]
-list4.extend(list5)  # return None, but list4 is now ["A","B","C","D","E","F"]
-print(list4)
-
-# YOu can check if a list contains an element with the in operator
-# This will return a boolean value
-# This is case sensitive
-print("apple" in ["apple", "banana", "cherry"])
-# Prints True
-
-# You can also check if a list does not contain an element with the not in operator
-print("apple" not in ["apple", "banana", "cherry"])
-# Prints False
-
-# You can check the position of a specific element in the list with the index() function
-Mylist = [1,"A", 3, "B", "Z"]
-
-Mylist.index("A")  # prints 1
-Mylist.index("Z")  # prints 4
-
-# You can delete elements from a list with the del keyword
-# This will remove the element at the specified index
-# This will modify the original list
-fruits = ["apple", "banana", "cherry"]
-del fruits[1]
-print(fruits)
-# Prints ["apple", "cherry"]
-
-# You can also delete the entire list with the del keyword
-del fruits[:]
-# This will throw an error if you try to print fruits
-# print(fruits)
-
-# You can use slices to delete multiple elements from a list
-fruits = ["apple", "banana", "cherry", "date", "elderberry"]
-del fruits[1:3]
-print(fruits)
-# Prints ["apple", "date", "elderberry"]
-
-# To check if a list is empty you can check the length of the list
-if len(fruits) == 0:
-   print("Empty list")
-
-# List can of course contain lists
-myList = [1,2,[9,8,7],4,5]
-
-# You can use isinstance to check if a item from a list is an integer, list etc.
-for item in myList:
-    print(item)
-    print(type(item))
-    if(isinstance(item, list)):
-        print(f"{item} is a list")
-
-# To reverse the order of a list
-def reverse_list_ver1(items):
-    reversed_list = []
-    i = len(items) -1 
-    while i > -1:
-        reversed_list.append(items[i])
-        i -= 1
-    return reversed_list
-
-# Reverse the list using a range that counts backwards to -1 (inclusive of 0) from the last index of the list len(items) -1 
-def reverse_list_ver1(items):
-    reverse_list = []
-    for i in range(len(items) -1, -1, -1):
-        reverse_list.append(items[i])
-    return reverse_list
-
-#If you copy a list to another variable, the new variable will point to the same list in memory
-# This means that if you change the new variable, the original variable will also change
-MyList = [1,2,3]
-MyOtherList = MyList
-MyOtherList[0] = 4
-print(MyList) # Prints [4,2,3]
-
-# To copy a list to another variable without pointing to the same list in memory, you can use the copy() function
-MyList = [1,2,3]
-MyOtherList = MyList.copy()
-MyOtherList[0] = 4
-print(MyList) # Prints [1,2,3]
-
-# You can use a slice to copy a list to another variable without pointing to the same list in memory
-
-MyList[1,2,3]
-MyOtherList = MyList[:]
-MyOtherList[0] = 4
-print(MyList) # Prints [1,2,3]
 
 
 
