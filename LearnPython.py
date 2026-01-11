@@ -272,31 +272,45 @@ print(some_odd_string.isalpha()) # returns True
 print("****************************")
 
 # Lists, or arrays, are created with square brackets
-fruits = ["apple", "banana", "cherry"]
-print(fruits)
+inventory_items = ["old socks", "penny", "chipped knife", "rotten apple"]
 
 # Lists allow duplicates
-fruits = ["apple", "banana", "cherry","apple"]
-print(fruits)
+inventory_items_with_duplicates = ["old socks", "penny", "chipped knife", "rotten apple", "rotten apple"]
 
 # len will give you the number of elements in a list
-list=[1,2,3]
-len(list)  # prints 3
+len(inventory_items)  # prints 4
 
+# You can index into a list
+# lists are zero based
 
-# You can index into a list, lists are zero based
-print(fruits[0])
+print(inventory_items[0]) # prints "old socks"
+
+print(inventory_items[3]) # prints "rotten apple"
+
 print("****************************")
 
-# Iterate over a list using len of list
-# The len() function returns the number of elements in a list which will be one more than the last index number, 
-# but since range is exclusive of the end number we can use it directly
-for i in range(0, len(fruits)):
-    print(fruits[i])
+# Iterate over a list using len(the_list) and a for loop
+# for i in range(0, len(the_list)):
+        # print(i)
+
+# The len() function returns the number of elements in a list...
+# which will be one more than the last index number of the listm since lists indexes are 0 based. 
+
+# We can use the range function to iterate, walk through a list of items though...since
+# range is inclusive of the first number and exclusive of the end number
+
+# Example:
+# for i in range (1, 10):
+#       print(i)  # this only prints 1 through 9
+
+
+for i in range(0, len(inventory_items)):
+    print(inventory_items[i])
 
 # Iterate over the elements in a list via the for var in list
-for fruit in fruits:
-    print(fruit)
+for item in inventory_items:
+    print(item)
+    
 print("****************************")
 
 
