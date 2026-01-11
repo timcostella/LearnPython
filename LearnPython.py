@@ -308,64 +308,64 @@ for i in range(0, len(inventory_items)):
     print(inventory_items[i])
 
 # Iterate over the elements in a list via the for var in list
-for item in inventory_items:
-    print(item)
-    
+for inventory_item in inventory_items:
+    print(inventory_item)
+
 print("****************************")
 
 
 # Lists can contain string, int, and boolean and these can be mixed in the same list
-MixedList = ["One",True, 1]
-print("****************************")
+mixed_up_inventory = ["1", "Rotten Apple", "False", "Smelly Socks", "3.42"]
 
 
-# Adding to a list ListName.append("ThingToAdd")
-fruits.append("pear")
-print(fruits)
-print("****************************")
+# You can add additional items to a list via the append() method
+# ListName.append("ThingToAdd")
+
+inventory_items.append("broken bottle")
+print(inventory_items)
 
 
 # You can add an item to a list at a specific spot (index) in the list
-fruits.insert(0,"pinneaple")
-print(fruits)
+inventory_items.insert(0,"war hammer")
+print(inventory_items)
 
-# Two lists can be concatenated together
-veggies = ["broccoli","lettuce","peas"]
-food = fruits + veggies
-print (food)
+# Two lists can be concatenated together - combined into 1 new list
+another_characters_inventory = ['peach', 'ripped cloth', 'boots']
 
-print("****************************")
+group_inventory = inventory_items + another_characters_inventory
+print (group_inventory)
 
-
-# Removing Items from a list, if the list contains duplicates the first matching element is removed
-fruits.remove("apple")
-print(fruits)
-print("****************************")
+# You can use remove() to remove items from a list, if the list contains duplicates the first matching element is removed
+another_characters_inventory.remove("peach")
+print(another_characters_inventory)
 
 # You can remove an item from a list by index with the pop() function
 # By default pop() removes the last item in the list
-fruits.pop()  # removes the last item in the list
-print(fruits)
-print("****************************")
+inventory_items.pop()  # removes the last item in the list
+print(inventory_items)
+
 
 # You can also specify the index of the item to remove with pop()
-fruits.pop(0)  # removes the first item in the list
-print(fruits)
+inventory_items.pop(0)  # removes the first item in the list
+print(inventory_items)
+
 print("****************************")
 
 
 # You can radomize a list with random.shuffle
 # requires you to import random
-MyOrderedList = [1,2,3,4,5,6,7,8,9,10]
-random.shuffle(MyOrderedList)
+my_numbers_list = [1,2,3,4,5,6,7,8,9,10]
+random.shuffle(my_numbers_list)
+print(my_numbers_list)
 
 
 # You can find the min and max of a list 
-PriceList = [0.00, 10.00, 34.54, -5.00, 123.45, 2.34]
-min(PriceList)
-max(PriceList)
+characters_iq_list = [34.00, 67.00, 34.54, -5.00, 123.45, 2.34]
 
+print(min(character_iq_list)) # prints -5
+print(max(characters_iq_list)) # prints 123.45
 
+print("****************************")
 
 # Comparisons can be done with ==, !=, <=, >=, <, > which result in True or False
 
@@ -400,9 +400,12 @@ max(PriceList)
 
 
 # If, elif and else
-if MyAge >= 40:
+
+character_age = 43
+
+if character_age >= 40:
     print(f"You are quite old!")
-elif MyAge >=30:
+elif character_age >=30:
     print(f"You are still young!")
 else:
     print("You are very very young, get to work")
