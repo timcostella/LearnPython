@@ -271,8 +271,15 @@ print(some_odd_string.isalpha()) # returns True
 
 print("****************************")
 
-# Lists, or arrays, are created with square brackets
+# Python supports an array like structure called lists
+# Lists are declared using square brackets
+# Lists can contain items of any data type
 inventory_items = ["old socks", "penny", "chipped knife", "rotten apple"]
+
+# You can access an item in a list by using it's index:
+# lists are zero based
+print(inventory_items[0]) # prints "old socks"
+print(inventory_items[3]) # prints "rotten apple"
 
 # Lists allow duplicates
 inventory_items_with_duplicates = ["old socks", "penny", "chipped knife", "rotten apple", "rotten apple"]
@@ -280,38 +287,20 @@ inventory_items_with_duplicates = ["old socks", "penny", "chipped knife", "rotte
 # len will give you the number of elements in a list
 len(inventory_items)  # prints 4
 
-# You can index into a list
-# lists are zero based
+# Lists can be declared using multiple lines
+character_ages = [
+12,
+47,
+502
+]
 
-print(inventory_items[0]) # prints "old socks"
-
-print(inventory_items[3]) # prints "rotten apple"
-
-print("****************************")
-
-# Iterate over a list using len(the_list) and a for loop
-# for i in range(0, len(the_list)):
-        # print(i)
-
-# The len() function returns the number of elements in a list...
-# which will be one more than the last index number of the listm since lists indexes are 0 based. 
-
-# We can use the range function to iterate, walk through a list of items though...since
-# range is inclusive of the first number and exclusive of the end number
-
-# Example:
-# for i in range (1, 10):
-#       print(i)  # this only prints 1 through 9
+# You can change the elements of a list via the index number
+character_ages[0] = 11
+print(character_ages)
 
 
-for i in range(0, len(inventory_items)):
-    print(inventory_items[i])
-
-# Iterate over the elements in a list via the for var in list
-for inventory_item in inventory_items:
-    print(inventory_item)
-
-print("****************************")
+# You can declare an empty list like so MyEmptyList = []
+characters_coming_soon = []
 
 
 # Lists can contain string, int, and boolean and these can be mixed in the same list
@@ -365,7 +354,56 @@ characters_iq_list = [34.00, 67.00, 34.54, -5.00, 123.45, 2.34]
 print(min(character_iq_list)) # prints -5
 print(max(characters_iq_list)) # prints 123.45
 
+
+
 print("****************************")
+
+
+# For loops allow you to iterate over a range of numbers, items, etc.
+
+# This will print the numbers 0-99
+# The numbers a, b in range(a, b) are inclusive of a and exclusive of b. So range(0, 10) includes 0 to 9.
+for i in range(0, 100):
+        print(i) # prints 0 to 99
+
+# the range function can also take a third parameter, the step
+# This will print the numbers 0-99 in increments of 5
+for i in range(0, 100, 5):
+        print(i) # prints 0, 5, 10 ...95
+
+# You can even count backwards with a negative step
+# This will print the numbers 100-0 in decrements of 5
+for i in range(100, 0, -5):
+        print(i) # prints 100, 95, 90 ...5
+
+
+print("****************************")
+
+# Iterate over a list using len(the_list) and a for loop
+# for i in range(0, len(the_list)):
+        # print(i)
+
+# The len() function returns the number of elements in a list...
+# which will be one more than the last index number of the listm since lists indexes are 0 based. 
+
+# We can use the range function to iterate, walk through a list of items though...since
+# range is inclusive of the first number and exclusive of the end number
+
+# Example:
+# for i in range (1, 10):
+#       print(i)  # this only prints 1 through 9
+
+
+for i in range(0, len(inventory_items)):
+    print(inventory_items[i])
+
+# Iterate over the elements in a list via the for var in list
+for inventory_item in inventory_items:
+    print(inventory_item)
+
+print("****************************")
+
+
 
 # Comparisons can be done with ==, !=, <=, >=, <, > which result in True or False
 
@@ -410,6 +448,8 @@ elif character_age >=30:
 else:
     print("You are very very young, get to work")
 
+print("****************************")
+
 
 # Functions are declared with the def keyword
 # The function body is indented with 4 spaces or one tab
@@ -418,25 +458,28 @@ else:
 # When no return value is specified in a function, it will automatically return None.
 
 
-def SayHello(fname, lname):
-    print(f"Hello {fname} {lname}")
+def say_hello(first_name, last_name):
+    print(f"Hello {first_name} {last_name}!")
 
-SayHello("Tim","Costella")
+say_hello("Billy","Baloney")  # prints Hello Billy Baloney!
+
 
 # Functions can return values with the return keyword.
-def Add(a,b):
+def add(a,b):
     return a + b
 
-Result = Add(1,2)
-print(Result)
+addition_result = add(1,2)
+print(addition_result) # prints __ i'll let you figure it out
 
 # Functions can return multiple values
-def AddAndSubtract(a,b):
+def add_and_subtract(a,b):
     return a + b, a - b
 
-addition, subtraction = AddAndSubtract(1,2)
+addition, subtraction = add_and_subtract(19, 4)
 print(f"Addition Result: {addition} and Subtraction Result: {subtraction}")
 
+
+print("****************************")
 
 # Parameters are the names used for inputs when defining a function. 
 #Arguments are the values of the inputs supplied when a function is called.
@@ -449,37 +492,42 @@ def add(a, b):
 sum = add(5, 6)
 
 
-# In Python you can specify a default value for a function argument. It's nice for when a function has arguments that are optional. 
+print("****************************")
 
-def get_greeting(email, name="there"):
-    print("Hello", name, "Welcome! You've successfully registered with your email:", email)
+# In Python you can specify a default value for a function argument. 
+# It's nice for when a function has arguments that are optional. 
 
-get_greeting("jhardy@example.com", "Joe")
+def dungeon_greeting(name="Unnamed Explorer"):
+    print(f"Hello {name}, You are about to die")
+
+dungeon_greeting("Billy Baloney")
+dungeon_greeting()
 
 
-get_greeting("jhardy@example.com")
-
+print("****************************")
 
 
 # Reading files in python, 'r' is read-only
 # Notice backslash is a special character, the escape characater, and must be escaped by itself 
-with open('C:\\Users\\timco\\.aws\\credentials', 'r') as file:
+# using with will automatically close the file when you exit the with block, I think...
+with open('C:\\Users\\hero\\super_secret_file', 'r') as file:
 # Read the entire content of the file
    content = file.read()
    print(content)
 
 
 # Variables defined outside all functions are global variables and can be used inside a funtion with (or without) the global keyword
-c = 13
-def MyFunction():
-    # global c
-    return c + 15
+armor_strength = 13
+def hit_armor(damage):
+    global armor_strength
+    return armor_strength - damage
 
-result = MyFunction()
-print(result)
+armor_left = hit_armor(5)
+print(armor_left)
 
-# Variables defined inside a function are local variables and aren't accessible outside of the function scope
+# Variables defined inside a function definition are local variables and aren't accessible outside of the function definition (scope)
 
+print("****************************")
 
 # Python supports using binary numbers, if you add 0b to the front of a number it will be treated as binary
  print(0b0001)
@@ -509,74 +557,6 @@ print(int(binary_string,2))
 # prints 5
 
 
-# For loops allow you to iterate over a range
-# This will print the numbers 0-99
-# The numbers a, b in range(a, b) are inclusive of a and exclusive of b. So range(0, 10) includes 0 to 9.
-for i in range(0, 100):
-        print(i)
-
-# the range function can also take a third parameter, the step
-# This will print the numbers 0-99 in increments of 5
-for i in range(0, 100, 5):
-        print(i)
-
-# You can even count backwards with a negative step
-# This will print the numbers 100-0 in decrements of 5
-for i in range(100, 0, -5):
-        print(i)
-
-
-# Python supports an array like structure called lists
-# Lists are declared using square brackets
-# Lists can contain items of any data type
-MyPackingList = ["shoes", "hat", "sunscreen", "beer"]
-
-# Lists are indexed based on 0, so index 0 is "shoes" above
-
-# You can access an item in a list by using it's index:
-MyPackingList[1]=="hat" # returns True
-
-# To find the number of items in a list you can use the len function
-# The length of list is always 1 more than the last index number
-len(MyPackingList) == 4
-
-
-# Lists can be declared using multiple lines
-OurAges = [
-10,
-44,
-45
-]
-
-# You can change the elements of a list via the index number
-OurAges[0] = 11
-print(OurAges)
-
-# You can declare an empty list like so MyEmptyList = []
-MyList = []
-
-# You can add elements to the end of a list with the append function
-MyList.append("Joe")
-
-# You can remove elements from the end of a list using the pop function
-MyList.pop()
-
-print(MyList)
-
-# The pop function can remove any element of a list if you specify the index
-AnotherListOfVeggies = ["cabbage", "carrots", "apples", "lettuce", "tomatoes"]
-AnotherListOfVeggies.pop(2) 
-AnotherListOfVeggies
-
-# You can use a for loop to easily iterate over a list
-sports =["football","soccer","baseball","basketball","tennis"]
-
-for i in range(0, len(sports)):
-    print(sports[i])
-
-# An even better of iterating over a list is to use the for in loop
-for sport in sports:
-    print(sport)
 
 # Lists can be sliced using the colon operator
 # The colon operator takes two parameters, the start and the end and an optional step parameter
