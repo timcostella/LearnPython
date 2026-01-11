@@ -1,81 +1,111 @@
 
-# Single line comments in Python begin with hash marks
+# Single line comments in Python begin with a hash mark "#". 
+# Comments are very import for us and future developers to understand the purpose of a line of code, function, etc.
 
 """
-    triple quotes create a multi-line comment
+    triple quotes create a multi-line comment, it is easier than starting every line with a comment.
     multi-line comments are also used for doc strings
 """
 
-# To use external modules you use the import function to make them available to your code
+# To use external modules (code not in your file) you use the import function to make them available to your code
+# There are various ways to import code:
+
+# from file import className, variable name, etc.
+# from file import *
+# import module
 import random
 
 
-# Printing to the console
+# Printing to the console, you have to start any new language by printing "hello world", it is the rule.
 print("hello world")
 
 
 print("****************************")
 
-# You print numbers either in quotes as strings or without quotes as integers
+# You print numbers either in quotes as strings or without quotes as integers or floats
+
+print("1") # prints 1 as a string
+print(2) # prints 2 as an integer
+print(3.0) # prints 3.0 as a float
+
+
+print("****************************")
+
 # You can even do math inside of the print function
-print(1)
 print(1+4)
 # You can add parentheses to your math statements ...even inside of a print statement to force a specific order of operations
 print((250 + 241 + 244 + 255) / 4)
 
+
 print("****************************")
 
 # Strings in python are enclosed in quotes
-# Create strings by wrapping the text in single quotes or double quotes. That said, double quotes are preferred.
-portuguese_greeting = 'Bom dia'
-Greeting = "Hello"
-print(Greeting)
+# Create strings by wrapping the text in single quotes or double quotes.
+# Double quotes are preferred.
+
+character_greeting = 'Good day sir'
+character_greeting_alt = "Hullo ther'"
+character_greeting_another = "hiya"
+
+print(character_greeting)
 print("****************************")
 
 # You can check the length of a string with the len() function
-print(len(Greeting))  # Prints 5
+print(len(character_greeting))  # Prints 12
 
-# Python has several built-in string methods that can be used to manipulate strings
+# Python has MANY built-in string methods that can be used to manipulate strings
 
 # For example, you can convert a string to uppercase with the upper() method
-print(Greeting.upper())  # Prints "HELLO"
+print(character_greeting.upper())  # Prints "GOOD DAY SIR"
 
 # You can convert a string to lowercase with the lower() method
-print(Greeting.lower())  # Prints "hello"
+print(character_greeting_alt.lower())  # Prints "hullo ther'"
 
 # You can convert a string to Proper case using the capitalize() method
-print(Greeting.capitalize())  # Prints "Hello"
+print(character_greeting_another.capitalize())  # Prints "Hiya"
 
 # You can replace characters in a string with the replace() method
-print(Greeting.replace('e', 'a'))  # Prints Hallo
+print(character_greeting_another.replace('i', 'e'))  # Prints heya
 
 # You can remove whitespace from the beginning or end of a string with the strip method
-a_lot_of_whitespace = "   my string  "
-print(a_lot_of_whitespace.strip()) # Prints "my string" 
+a_lot_of_whitespace = " oh sorry sir "
+print(a_lot_of_whitespace.strip()) # Prints "oh sorry sir" 
 
 # You can check if a string starts with a certain substring with the startswith() method
-print(Greeting.startswith("H"))  # Prints True  
-       
+# Returns a boolean value, either True or False
+print(character_greeting.startswith("H"))  # Prints False  
 
+print("****************************")
+       
 # You can iterate across the characters of a string using a for loop
-MyString = "Hello There Citizen"
-for char in MyString:
-     print(char)
+character_greeting_senior = "Hello There Citizen"
+for char in character_greeting_senior:
+     print(char)  # prints H
+                  # prints e
+                  # prints l
+                  # prints .... n
+ 
+ print("****************************")
 
 # Variables can be declared on the same line (harder to read if they are the same type though)
-sword, shield, armor = "long sword", "bronze shield", "rusty armor"
+sword, shield, armor = "bastard sword", "wooden shield", "dented armor"
+
+print("****************************")
 
 # Numbers in variables
-Age = 41  #integer
-Weight = 156.5 #float
+character_age = 45  # integer - whole number
+character_weight = 156.5 #float - not a whole number
 
 # Integers in python are not enclosed in quotes. If you did, they become strings not ints
-MyAge = 41
+character_age_alt = "46"  # string not int, so can't do math with it, etc
 
+
+print("****************************")
 
 # Math operations in Python
-a=100
-b=30
+
+a = 100
+b = 30
 
 sum = a + b  # Addition
 
@@ -111,6 +141,8 @@ quotient = a / b   # Division results in a float
 print(16e3)
 #Prints 16000.0
 
+print("****************************")
+
 ## python can use underscores in numbers for readability instead of commas for delimiters
 num = 16_000
 print(num)
@@ -120,106 +152,126 @@ num = 16_000_000
 print(num)
 # Prints 16000000
 
+print("****************************")
 
-# Similar to the ++, or -- operator in Javascript, C and C#, python has the +=, -=
-# 
-# operator 
-star_rating = 4
-star_rating -= 1
-# star_rating is now 3
+# Similar to the ++, or -- operator in Javascript, C and C#
+# python has the +=, -=, /=, *= operators 
 
-star_rating = 4
-star_rating *= 2
-# star_rating is now 8
+character_level = 4
+character_level += 1 # character_level is now 5
 
-star_rating = 4
-star_rating /= 2
-# star_rating is now 2.0
+character_stamina = 4
+character_stamina *= 2 # character_stamina is now 8
 
+
+print("****************************")
 
 # Booleans aren't enclosed in quotes, and are case sensitive
 # Booleans are either True or False
-IsAdult = True
-IsFemale = False
+character_is_female = True
+character_is_adult = False
+
+print("****************************")
+
 # We can use not to negate a boolean value
-IsAdult = not IsAdult  # Now IsAdult is False
+character_is_adult = not character_is_adult  # character_is_adult is now True
+character_is_female = not character_is_female # character_is_female is now False
+
+print("****************************")
 
 # We can use the and operator to combine two boolean values
-IsAdult = True
-IsFemale = False
-IsAdultAndFemale = IsAdult and IsFemale  # Now IsAdultAndFemale is False
-# We can use the or operator to combine two boolean values
-IsAdultOrFemale = IsAdult or IsFemale  # Now IsAdultOrFemale is True
+character_is_elf = True
+character_is_archer = False
+
+character_is_elf_archer = character_is_elf and character_is_archer  # False, True and False = False
+
+character_is_elf_or_archer = character_is_elf or character_is_archer # True, True or False = True
+
+print("****************************")
 
 # Variables in Python are dynamically typed, meaning you don't have to declare the type of a variable when you create it.
-# A variables type can be outputed with the type() function
-MyAge = 41
-print(type(MyAge).__name__)
+# In a typed language you might declare a variable like so: variable_type variable_name = value
+# int character_age = 54
 
+# A variables type - boolean, float, integer, string, etc. can be outputed with the type() function
+character_age = 100
+print(type(MyAge).__name__) # prints int
+
+print("****************************")
 
 # Null variables are set to None
-# We can make an "empty" variable by setting it to None. None is a special value in Python that represents the absence of a value. 
-#It is not the same as zero, False, or an empty string.
-MyWorth = None
+# We can make an "empty" variable by setting it to None. 
+# None is a special value in Python that represents the absence of a value. 
+# It is not the same as zero, False, or an empty string.
+
+character_blow_count = None
 
 # To check if something is None use the is None 
-if(MyWorth is None):
-    print("MyWorth is NULL/NONE")
+print(character_blow_count is None)  # prints True
 
+print("****************************")
 
 # Python is dynamically typed, which means a variable can store any type, and that type can change.
 # Other dynamically typed languages include JavaScript, Ruby, and PHP
-# For example, if I make a number variable, I can later change that variable to a string
+# For example, if I make an integer variable, I can later change that variable to a string
 #  In almost all circumstances, it's a bad idea to change the type of a variable.
-speed = 5
-speed = "five"
+character_speed = 5
+character_speed = "five"
 
 # Languages that aren't dynamically typed are statically typed, such as Go, C, Rust 
 # In a statically typed language, if you try to assign a value to a variable of the wrong type, an error would crash the program.
 
-
+print("****************************")
 
 # Strings can be concatinated via +
-Name = "Joe"
-Message = Greeting + " " + Name
-print(Message)
+character_silly_greeting = "Howdy doody do you do"
+character_first_name = "Barty"
+
+character_response = character_greeting + " " + character_first_name
+
+print(character_response) # prints "Howdy doody do you do Barty"
+
 print("****************************")
 
 # Python we can create strings that contain dynamic values with the f-string syntax.
 # Formatted strings are used to place different types together in one output
 # Notice variables are embedded into formatted strings via the {variableName}
-print(f"You are {Name}")
+
+character_age_ancient = 540
+print(f"You are {character_age_ancient} years old")  # prints "You are 540 years old"
+
 print("****************************")
 
 
-# String can be split into a list with the split() function which will split on a space by default
-FullName = "Joseph B. Hardy"
-NameParts = FullName.split()
-print(NameParts)
-print("****************************")
-
+# String can be split into a list, basically what would be called an array in other languages, with the split() function which will split on a space by default
+character_full_name = "Barty B. Bossman"
+character_name_parts = character_full_name.split()
+print(character_name_parts) # prints "['Barty', 'B.', 'Bossman']"
 
 
 # The string split function can also take a character on which to split, in this case a comma
-Names="Bill,Bob,Joe,Sam"
-Name = Names.split(",")
-for N in Name:
-    print("Hello " + N + "!")
+
+character_first_names = "Billy,Bobby,Barty,Benny"
+first_names_list = character_first_names.split(",")
+print(first_names_list) # prints ['Billy', 'Bobby', 'Barty', 'Benny']
+
+
 print("****************************")
 
 
 # You can check if a string contains a substring with the in operator
-if "Tim" in FullName:
-    print("Tim is in the full name")
+character_name_to_find = "Bessy"
+print(character_name_to_find in character_first_names) # Prints False
 
+print("****************************")
 
 # You can check if a string is alphanumeric, i.e. contains only ascii/unicode "letters" and not spaces, nonprintable characters, etc.
-MyStringAlpha="abµ"
-print(MyStringAlpha.isalpha()) # returns True
+some_odd_string="abµ"
+print(some_odd_string.isalpha()) # returns True
 
+print("****************************")
 
-
-# Lists are created with square brackets
+# Lists, or arrays, are created with square brackets
 fruits = ["apple", "banana", "cherry"]
 print(fruits)
 
