@@ -1,6 +1,6 @@
 
 # Single line comments in Python begin with a hash mark "#". 
-# Comments are very import for us and future developers to understand the purpose of a line of code, function, etc.
+# Comments are very important for us and future developers to understand the purpose of a line of code, function, etc.
 
 """
     triple quotes create a multi-line comment, it is easier than starting every line with a comment.
@@ -16,7 +16,7 @@
 import random
 
 
-# Printing to the console, you have to start any new language by printing "hello world", it is the rule.
+# Print to the console with print(), you have to start learning any new programming language by printing "hello world", it is the rule.
 print("hello world")
 
 
@@ -538,7 +538,7 @@ MyOtherList[0] = 4
 print(MyList) # Prints [1,2,3]
 
 
-
+print("****************************")
 
 
 # Comparisons can be done with ==, !=, <=, >=, <, > which result in True or False
@@ -571,7 +571,7 @@ print(MyList) # Prints [1,2,3]
 # python supports the logical operator - not 
 # not True == False
 
-
+print("****************************")
 
 # If, elif and else
 
@@ -634,10 +634,10 @@ print("****************************")
 # It's nice for when a function has arguments that are optional. 
 
 def dungeon_greeting(name="Unnamed Explorer"):
-    print(f"Hello {name}, You are about to die")
+    print(f"Hello {name}, You are about to die!")
 
-dungeon_greeting("Billy Baloney")
-dungeon_greeting()
+dungeon_greeting("Billy Baloney") #prints "Hello Billy Baloney, You are about to die!
+dungeon_greeting() #prints "Hello Unnamed Explorer, You are about to die!"
 
 
 print("****************************")
@@ -695,116 +695,129 @@ print(int(binary_string,2))
 
 
 # Tuples are like lists but are immutable, meaning they cannot be changed
-# Tuples are declared with parentheses
+# You can't add, remove or change items in a tuple once created
+# Tuples are declared with parentheses ()
 # Tuples can contain items of any data type
-MyTuple = ("shoes", "hat", "sunscreen", "beer")
-MyOtherTuple =("book", "sunglasses", "towel", "snorkel")
+# Tuples are indexed like lists
+# Tuples can contain duplicates 
+
+magic_enhancements = ("shoes of speed", "hat of intelligence", "magic sunscreen", "plain beer")
+spells_wand_can_cast = ("down with you", "instant kill", "run away scared", "puke and puke and puke")
 
 # Accessing a tuple is the same as a list
-print(MyTuple[1])
+print(magic_enhancements[1])  # prints "hat of intelligence"
 
 # Tuples can be stored in a list
-MyList = [MyTuple]
-MyOtherGreatList = [("Kia","Kacey","2021","Black"), ("Nissan","Roger","2018","Red")]
+all_magic_items = [magic_enhancements, spells_wand_can_cast]
+
 
 # You can access a tuple in a list like so
-print(MyList[0])    # Prints ("shoes", "hat", "sunscreen", "beer")
-print(MyList[0][0]) # Prints "shoes"
-print(MyList[0][1]) # Prints "hat"
+print(all_magic_items[0])    # Prints ("shoes of speed", "hat of intelligence", "magic sunscreen", "plain beer")
+print(all_magic_items[0][0]) # Prints "shoes of speed"
+print(all_magic_items[1][1]) # Prints "instant kill"
 
 # You can unpack a tuple into variables
-a, b, c, d = MyTuple    # a = "shoes", b = "hat", c = "sunscreen", d = "beer"
-print(a)
+# When you return multiple values from a function, you're actually returning a tuple.
+item_one, item_two, item_three, item_four = magic_enhancements
 
 # Multiple tuples can be concatenated together into 1:
-CombinedTuple = MyTuple + MyOtherTuple
-print(CombinedTuple)
+all_magic = magic_enhancements + spells_wand_can_cast
 
-# When you return multiple values from a function, you're actually returning a tuple.
 
+print("****************************")
 
 # Dictionaries allow us to store key value pairs in Python
-MyCharacter = {
-     "name": "Joe Bream",
+character_details = {
+     "name": "Bundy Bream",
      "level": "25",
      "class": "Hunter",
      "id": "122323324433"
 }
 
 # Dictionaries are accessed via the key
-MyCharacter["name"]
+print(character_details["name"])
 
 # Blank dictionaries are created with {}
-MyPlanetDictionary = {}
+another_character_details= {}
 
 # Add items to dictionary like so
-MyPlanetDictionary["mars"] = "red"
-MyPlanetDictionary["earth"] = "blue"
-MyPlanetDictionary["neptune"] = "purple"
+another_character_details["name"] = "Bruno Barns"
+another_character_details["level"] = "10"
+another_character_details["class"] = "Sorcerer"
 
-print(MyPlanetDictionary)
 
 # You can retrieve the value for a specified key with the get() method. 
 # get() has an optional default value that will be returned if the key you specified is not found
 
-MyPlanetDictionary.get("earth", "not found")  #returns "blue"
-MyPlanetDictionary.get("saturn", "not found")  #returns "not found"
+character_details.get("name", "not found")  # returns "Bundy Bream"
+character_details.get("power", "not found")  # returns "not found"
 
 
-# You can update a dictionary key value but reassigning it
-MyPlanetDictionary["earth"] = "blueish"
+# You can update a dictionary key value by reassigning it
+character_details["level"] = "26"
 
 # You can delete a dictionary key value using del keyword
-del MyPlanetDictionary["mars"]
+del character_details["level"]
+
+print(character_details)
 
 # You use the in keyword to check if a key exists in a dictionary
-"earth" in MyPlanetDictionary  # Prints True
+"class" in character_details  # Prints True
 
 # You can get the number of key value pairs in a dictionary with the len function
-len(MyPlanetDictionary)  # Prints 2
+len(character_details)  # Prints 3 - name, class, id are left
 
 # You can iterate over a dictionary using the for in syntax
-for planet in MyPlanetDictionary:
-     print(f"{planet} ->  {MyPlanetDictionary[planet]}")
+for detail in character_details:
+     print(f"{detail} ->  {character_details[detail]}")
 
 
 # You can nest disctionaries in dictionary
-MySolarSystems = {}
-MySolarSystems["sol"] = MyPlanetDictionary
+all_characters = {}
+all_characters["player1"] = character_details
+all_characters["player2"] = another_character_details
 
 # You can chain keys in a dictionary to access a nested value
-print(MySolarSystems["sol"]["earth"])
+print(all_characters["player1"]["name"])
+
+
+print("****************************")
 
 # Sets are like lists, but do not allow duplicates
 # Sets are unordered and they guarantee uniqueness
 # You declare a set using {} like you would a dictionary
-MySet = {"Tim", "John", "Brad", "Brandon"}
+character_names = {"Billy", "Bobby", "Brad", "Brandon"}
 
 # You declare an empty set using the set() keyword
-MyEmptySet = set()
+npc_names= set()
 
 
 # You use the add keyword to add items to a set
-MyEmptySet.add("Harry")
-MyEmptySet.add("Sally")
+character_names.add("Bilbo")
+character_names.add("Barry")
 
-print(MyEmptySet)
+print(character_names)
 
 # You can remove items from a set using the remove keyword
-MyEmptySet.remove("Sally")
+character_names.remove("Brad")
 
 
-# You can typecast? a list directly into a set and it will remove all duplicates
-set(MyList)
+# You can typecast a list directly into a set and it will remove all duplicates
+set(["Bilbo", "Bob", "Baldy", "Booker", "Brandon", "Bilbo"])
 
 # You can typecast a set directly into a list 
-list(MyEmptySet)
+list(character_names)
 
-# You can subtract a set from another
-my_character_set = {"Larry", "Curly", "Mo", "Sandy"}
-my_female_character_set = {"Sandy"}
-my_male_character_set = my_character_set - my_female_character_set
-print(my_male_character_set) # prints Larry Curly Mo
+# You can subtract one set from another
+# You are left with items in the 1st set that aren't also in the 2nd set
+
+character_names = {"Billy", "Bobby", "Brad", "Brandon"}
+other_character_names = {"Billy", "Bilbo", "Brad", "Brandy"}
+character_names_not_in_other = character_names - other_character_names
+print(character_names_not_in_other) # prints {"Bobby", "Brandon"}
+
+
+print("****************************")
 
 # Python has a try/exception block which can catch errors
 try:
@@ -813,11 +826,15 @@ except Exception as e:
      print(e)
 
 # You can raise your own exceptions with the raise keyword
-# This will throw an error with the message "This is an error"
-raise Exception("This is an error")
+# This will throw an error with the message "This is a really scary error"
+raise Exception("This is a really scary error")
 
 
-# When handling exceptions, it’s important to catch the most specific ones first, because Python stops checking once it finds a matching exception handler
+# When handling exceptions, it’s important to catch the most specific ones first, 
+# because Python stops checking once it finds a matching exception handler
+
+
+print("****************************")
 
 
 # You can use a with block to open a file for reading
@@ -835,66 +852,33 @@ except Exception as e:
 # Python classes are defined with a class keyword
 # In Python, if you name a method __init__, that's the constructor and it is called when a new object is created.
 
-class car:
-    def __init__(self, make, model, color):
-        self.make = make
-        self.model = model
-        self.color = color
-
-# If you print a class you get a default output that isn't very useful, but you can override the default print operation
-MyCar = car("Ford", "F150", "Blue")
-print(MyCar)
-
-
-#The __str__ method (short for "string") lets us change what is printed . It takes no inputs but returns a string that will be printed to the console when someone passes an instance of the class to Python's print() function.
-
-class UpgradedCar:
-    def __init__(self, make, model, color, speed):
-        self.make = make
-        self.model = model
-        self.color = color
-        self.speed = speed
-
-    def __str__:
-        return f"The best car ever is a {self.color} {self.make} {self.model} that can go to speeds up to {self.speed}"
-
-MyNewCar = UpgradedCar("Ford", "F150", "Blue")
-print(MyNewCar)
-
-
 ### Classes have methods, or functions that act on the instance of the class.  
 ### The first parameter is always the instance of the class that the method is being called on and we use 'self' for this
 
-class MySportsCar:
-    def __init__(self, make, model, color, speed, price, x, y, z):
-        self.make = make
-        self.model = model
-        self.color = color
-        self.speed = speed
-        self.x = x
-        self.y = y
-        self.z = z 
+class Character:
+    def __init__(self, character_name, character_type, character_strength):
+        self.character_name = character_name
+        self.character_type = character_type
+        self.character_strength = character_strength
         # You can create private properties or methods by starting them with two underscores __
-        self.__price = price
+        # private properties/methods are meant to be accessed by code/function outside of the class itself.
+        self.__character_secret_weapon = "sting"
 
+    # If you print a class you get a default output that isn't very useful, but you can override the default print operation
+    # The __str__ method (short for "string") lets us change what is printed
+    # It takes no inputs but returns a string that will be printed to the console when someone passes an instance of the class to Python's print() function.
+    def __str__(self):
+        return f"Character {self.character_name} of type {self.character_type} with strength {self.character_strength} has spawned, beware!"
 
-    def __str__:
-        return f"The best car ever is a {self.color} {self.make} {self.model} that can go to speeds up to {self.speed}"
-
-    def move(self, x, y, z):
-        self.x += x
-        self.y += ys
-        self.z += z
-
-    # Python allows for operator overload, by default you can't add (+) one instance of a object to another, unless you define an add method 
-    def __add__(self, car):
+   # Python allows for operator overload, by default you can't add (+) one instance of a object to another, unless you define an add method 
+    def __add__(self, other_character):
         return self.x + car.x
-    
-    # Now I can add two car objects together to get the combined x positions, not so useful in this case
+first_character = Character("Bilbo Baggins", "hobbit", "50")
+print(first_character)
 
+second_character = Character("Brawny Brawler", "human", "150")
+print(second_character)
 
-MyPorsche = MySportsCar("Porsche", "Some Expensive Model", "Cherry Red")
-MyPorsche.move(1,1,1)
 
 # Python supports inheritance - one class can inherit the properties and methods from a parent class
 # You add the parent class inside of paranthesis when you define the child class
