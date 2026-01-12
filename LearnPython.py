@@ -849,6 +849,8 @@ except Exception as e:
     return False 
 
 
+print("****************************")
+
 # Python classes are defined with a class keyword
 # In Python, if you name a method __init__, that's the constructor and it is called when a new object is created.
 
@@ -872,7 +874,9 @@ class Character:
 
    # Python allows for operator overload, by default you can't add (+) one instance of a object to another, unless you define an add method 
     def __add__(self, other_character):
-        return self.x + car.x
+        return self.stregth + other_character.strength
+    
+
 first_character = Character("Bilbo Baggins", "hobbit", "50")
 print(first_character)
 
@@ -880,13 +884,20 @@ second_character = Character("Brawny Brawler", "human", "150")
 print(second_character)
 
 
+
 # Python supports inheritance - one class can inherit the properties and methods from a parent class
 # You add the parent class inside of paranthesis when you define the child class
-class MyRaceCar(MySportsCar):
-     def __init__(self, make, model, color, speed, price, x, y, z, max_acceleration):
+class Hero(Character):
+     def __init__(self, character_name, character_type, character_strength, hero_power):
+        
          # We can call the class's parent constructor or methods by using the super() method
-         super().__init__(self, make, model, color, speed, price, x, y, z)
-         self.max_acceleration = max_acceleration
+         super().__init__(character_name, character_type, character_strength)
+
+         self.hero_power = hero_power
+
+first_hero = Hero("Aargon", "human", "250", "hero_inspiration")
+
+print("****************************")
 
 
 # In Python, the built-in map function takes a function as an argument and an iterable (list, etc.) as inputs. 
