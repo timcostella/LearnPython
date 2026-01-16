@@ -966,6 +966,24 @@ if len(sys.argv) < 2:
         print("Usage python3 main.py <argument> <argument2>")
         # sys.exit(1)
 
+# We can also pass a variable number of arguments to a function using *args and **kwargs
+# *args allows us to pass a variable number of non-keyword arguments (value) to a function
+# **kwargs allows us to pass a variable number of keyword arguments (name=value) to a function
+def variable_arguments_function(*args, **kwargs):
+    for arg in args:
+        print(f"arg: {arg}")
+
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+variable_arguments_function(1, 2.342, "value3", name="Bob", age=30)
+
+# args and kwargs can be used together in the same function
+# The order of parameters must be: regular parameters, *args, **kwargs
+# The name args and kwargs are just conventions, you can use any names you want, the asterics are important
+
+print("****************************")
+
 
 # python supports ternary expressions which are used in functional programming - in order to make things harder to debug ;)
 # no it isn't to make the code harder to debug, I just don't like functional programming, at least not yet
