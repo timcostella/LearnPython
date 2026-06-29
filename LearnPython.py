@@ -1048,11 +1048,17 @@ def modify_list(list_to_modify):
 modify_list(name_list)
 print (name_list)
 
-# You can use dir() function on an python object to list out the attributes and methods
+# You can use dir() function on a python object to list out the attributes and methods
 # In this example we use the scandir function from the os module (import os) and use dir to see what it returns 
+
 for item in os.scandir("/home"):
     print (dir(item))
      
 # returns:
 #  ['__class__', '__class_getitem__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__fspath__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'inode', 'is_dir', 'is_file', 'is_junction', 'is_symlink', 'name', 'path', 'stat']
+
+
+# You can use the help() function on a python object to get any documentation
+for item in os.scandir("/home"):
+    help(item)
 
