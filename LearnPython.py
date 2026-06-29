@@ -651,6 +651,9 @@ with open('C:\\Users\\hero\\super_secret_file', 'r') as file:
    content = file.read()
    print(content)
 
+# Write a file with 'w' for write, 'a' for append
+with open('C:\\Users\\hero\\super_secret_file', 'w') as file:   
+    file.write("This is a secret message!")
 
 # Variables defined outside all functions are global variables and can be used inside a funtion with (or without) the global keyword
 armor_strength = 13
@@ -770,6 +773,16 @@ len(character_details)  # Prints 3 - name, class, id are left
 # You can iterate over a dictionary using the for in syntax
 for detail in character_details:
      print(f"{detail} ->  {character_details[detail]}")
+
+# You can get all the keys in a dictionary with the keys() method
+print(character_details.keys())
+
+# You can get all the values in a dictionary with the values() method
+print(character_details.values())
+
+# You can get all the key-value pairs in a dictionary with the items() method
+for key, value in character_details.items():
+     print(f"{key} = {value}")
 
 
 # You can nest disctionaries in dictionary
@@ -915,6 +928,12 @@ squared_nums = map(square, nums)
 print(squared_nums)
 # [1, 4, 9, 16, 25]
 
+# you can also use lambda functions with map
+squared_nums_lambda = map(lambda x: x * x, nums)
+print(squared_nums_lambda) # [1, 4, 9, 16, 25]
+
+print("****************************")
+
 
 # The built-in filter function takes a function and an iterable (in this case a list) and 
 # returns an iterator that only contains elements from the original iterable where the result of the function 
@@ -1028,4 +1047,12 @@ def modify_list(list_to_modify):
 
 modify_list(name_list)
 print (name_list)
+
+# You can use dir() function on an python object to list out the attributes and methods
+# In this example we use the scandir function from the os module (import os) and use dir to see what it returns 
+for item in os.scandir("/home"):
+    print (dir(item))
+     
+# returns:
+#  ['__class__', '__class_getitem__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__fspath__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'inode', 'is_dir', 'is_file', 'is_junction', 'is_symlink', 'name', 'path', 'stat']
 
